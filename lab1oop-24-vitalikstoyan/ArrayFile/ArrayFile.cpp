@@ -41,51 +41,51 @@ int main() {
 
 #include <iostream>
 
-int main() {
+int main(){
     int N;
     //вводимо розмір масиву 
-    std::count << "vvodumo rozmir massivu: ";
+    std::cout << "vvodumo rozmir massivu: ";
     std::cin >> N;
     //перевіряємо на правильність розміру
     if (N <= 0) {
-        std::count << "eroor" << std::endl;
+        std::cout << "eroor" << std::endl;
         return 1;
     }
-    int A[N];
+    int A[10];
     //оголошуємо масив та заповнюємо його
-    std::count << "vodumo masive:" << std::endl;
+    std::cout << "vodumo masive:" << std::endl;
     for (int i = 0; i < N; ++i) {
         std::cout << "chuslo" << i + 1 << ": ";
         std::cin >> A[i];
     }
-    int 1kratnogo2 = -1;
+
+    int pershogo_kratnogo_dvym = -1;
     for (int i = 0; i < N; ++i) {
         if (A[i] % 2 == 0) {
-            1kratnogo2 = i;
+            pershogo_kratnogo_dvym = i;
             break;
         }
     }
 
-     //якщо немає кратньому двом. або вони в останьому елементі то 
-    if (1kratnogo2 == -1 || 1kratnogo2 == N - 1) {
-        std::count << "nemaye takux elementiv " << std::endl;
+    //якщо немає кратньому двом. або вони в останьому елементі то 
+    if (pershogo_kratnogo_dvym == -1 || pershogo_kratnogo_dvym == N - 1) {
+        std::cout << "nemaye takux elementiv " << std::endl;
         return 0;
     }
-       //тоді знайдемо мінімальне значення додатніх елементів  розташованих правіше першого елементу кратному 2
-    int minznachenya = A[1kratnogo2 + 1];
+    //тоді знайдемо мінімальне значення додатніх елементів  розташованих правіше першого елементу кратному 2
+    int minznachenya = A[pershogo_kratnogo_dvym + 1];
 
-    for (int i = 1kratnogo2 + 2; i < N; i++) {
+    for (int i = pershogo_kratnogo_dvym + 2; i < N; i++) {
         if (A[i] > 0 && A[i] < minznachenya) {
             minznachenya = A[i];
         }
-     }
-    if (minznachenya == A[1kratnogo2 + 1]) {
-        std::count << "nemaye dodatnix chusel rozstashovanux pravise pershogo elementy kratnogo 2" << std::endl;
+    }
+    if (minznachenya == A[pershogo_kratnogo_dvym + 1]) {
+        std::cout << "nemaye dodatnix chusel rozstashovanux pravise pershogo elementy kratnogo 2" << std::endl;
     }
     else {
-        std::count << "min shacenya dodatnix elementiv rozctashovanux pravice pravogo elementy kratnogo 2" << minznachenya << std::endl;
+        std::cout << "min shacenya dodatnix elementiv rozctashovanux pravice pravogo elementy kratnogo 2" << minznachenya << std::endl;
     }
-
-    return 0;
-
-}
+     
+         return 0;
+   }
